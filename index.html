@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Kutub Uddin | Mobile Systems Architect</title>
+    <title>Md. Kutub Uddin | Mobile Architect</title>
 
-    <!-- Core Engine -->
+    <!-- Next-Gen Stack -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        primary: '#3b82f6',
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                            950: '#020617',
+                        },
                         accent: '#2dd4bf',
-                        surface: '#0f172a',
-                    },
-                    animation: {
-                        'spin-slow': 'spin 8s linear infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
@@ -35,380 +36,274 @@
     </script>
 
     <style>
-        body { background-color: #020617; color: #f8fafc; }
-
-        /* Modern Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
-
-        /* Mesh Gradient Background */
-        .mesh-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background:
-                radial-gradient(circle at 0% 0%, #1e1b4b 0%, transparent 35%),
-                radial-gradient(circle at 100% 100%, #0f172a 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, #020617 0%, transparent 100%);
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+            cursor: none; /* Custom Cursor */
         }
 
         /* Glassmorphism Evolved */
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .glass-card:hover {
-            background: rgba(30, 41, 59, 0.6);
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Text Effects */
-        .text-glow { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-        .gradient-text {
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        /* Spotlight Effect */
+        .spotlight {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--x) var(--y), rgba(59, 130, 246, 0.15) 0%, transparent 80%);
+            z-index: 1;
+        }
+
+        /* Text Gradient */
+        .text-reveal {
+            background: linear-gradient(to right, #ffffff 0%, #3b82f6 50%, #ffffff 100%);
+            background-size: 200% auto;
+            color: transparent;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
         }
 
-        /* Magnetic Button Effect */
-        .btn-magnetic {
-            position: relative;
-            transition: transform 0.3s ease;
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Bento Grid Specifics */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+        /* Custom Cursor */
+        #cursor {
+            width: 10px; height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 20px #3b82f6;
         }
 
-        @media (max-width: 1024px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-            .bento-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Animated Border */
-        .animated-border {
-            position: relative;
-            border-radius: 2rem;
-            padding: 1px;
-            background: linear-gradient(60deg, #3b82f6, #2dd4bf, #3b82f6);
-            background-size: 300% 300%;
-            animation: border-flow 4s ease infinite;
-        }
-        @keyframes border-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        #cursor-follower {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            z-index: 9998;
+            pointer-events: none;
+            transition: transform 0.15s ease-out;
         }
 
-        .no-print { display: block; }
-        @media print { .no-print { display: none !important; } }
+        /* Bento Grid Hover */
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .bento-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar { width: 0px; }
     </style>
 </head>
-<body class="selection:bg-primary/30 selection:text-primary">
+<body class="overflow-x-hidden selection:bg-brand-500/30">
 
-    <div class="mesh-bg"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    <div class="spotlight" id="spotlight"></div>
 
-    <!-- Floating Navbar -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl no-print">
-        <div class="glass-card rounded-full px-8 py-4 flex justify-between items-center border border-white/10">
-            <a href="#" class="text-xl font-display font-black tracking-tighter uppercase">
-                KUTUB<span class="text-primary">.</span>
+    <!-- Minimal Nav -->
+    <nav class="fixed top-8 left-0 w-full z-50 px-6">
+        <div class="max-w-5xl mx-auto glass rounded-full py-4 px-10 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter uppercase italic group">
+                K<span class="text-brand-500 group-hover:text-accent transition-colors">.</span>
             </a>
-            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                <a href="#about" class="hover:text-white transition-colors">Intro</a>
-                <a href="#experience" class="hover:text-white transition-colors">Stack</a>
-                <a href="#projects" class="hover:text-white transition-colors">Works</a>
-                <a href="#education" class="hover:text-white transition-colors">Bio</a>
+            <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
+                <a href="#work" class="hover:text-white transition-colors">Projects</a>
+                <a href="#about" class="hover:text-white transition-colors">Stack</a>
+                <a href="#contact" class="hover:text-white transition-colors">Connect</a>
             </div>
-            <a href="mailto:mdkutub150@gmail.com" class="bg-primary hover:bg-blue-600 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all">
-                Let's Talk
+            <a href="mailto:mdkutub150@gmail.com" class="text-[10px] font-bold uppercase tracking-widest bg-white text-black px-6 py-2 rounded-full hover:bg-brand-500 hover:text-white transition-all">
+                Hire Me
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section: The Statement -->
-    <header class="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <div data-aos="fade-down" class="mb-8">
-                <span class="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
-                    Based in Dhaka, Bangladesh
-                </span>
-            </div>
-
-            <h1 data-aos="zoom-in" data-aos-duration="1000" class="text-6xl md:text-9xl font-display font-black leading-[0.85] tracking-tighter mb-8 gradient-text">
-                ARCHITECTING <br> <span class="text-primary italic">MOBILE</span> SYSTEMS.
+    <!-- Hero: Cinematic Entrance -->
+    <header class="min-h-screen flex flex-col justify-center items-center relative px-6 text-center">
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="text-brand-500 font-mono text-sm mb-6 tracking-widest">>> SYSTEM ARCHITECT _</h2>
+            <h1 class="text-6xl md:text-9xl font-black leading-none tracking-tighter mb-8 text-reveal">
+                MD. KUTUB <br> UDDIN
             </h1>
-
-            <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12">
-                Crafting high-performance enterprise solutions with <span class="text-white font-medium">Native Android</span> & <span class="text-white font-medium">Flutter</span>. Specializing in ERP, HRM, and complex hardware integrations.
+            <p class="max-w-xl mx-auto text-slate-400 text-lg md:text-xl font-light mb-12">
+                Engineering high-impact <span class="text-white border-b border-brand-500">Mobile Ecosystems</span> with Native Android & Flutter.
             </p>
-
-            <div data-aos="fade-up" data-aos-delay="400" class="flex flex-wrap justify-center gap-6 no-print">
-                <div class="animated-border">
-                    <a href="cv.pdf" target="_blank" class="bg-slate-950 px-10 py-5 rounded-[1.95rem] font-bold flex items-center gap-3 hover:bg-transparent transition-all group">
-                        <i class="fas fa-file-invoice text-primary group-hover:text-white"></i>
-                        <span>Download Dossier</span>
-                    </a>
-                </div>
-                <button onclick="window.print()" class="glass-card px-10 py-5 rounded-[2rem] font-bold flex items-center gap-3 text-slate-400 hover:text-white">
-                    <i class="fas fa-print"></i> Quick Print
-                </button>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="cv.pdf" class="glass px-10 py-5 rounded-2xl font-bold flex items-center gap-3 hover:bg-white hover:text-black transition-all">
+                    <i class="fas fa-arrow-down"></i> GET RESUME
+                </a>
+                <a href="#work" class="bg-brand-500 text-white px-10 py-5 rounded-2xl font-bold hover:bg-brand-600 transition-all shadow-xl shadow-brand-500/20">
+                    VIEW WORKS
+                </a>
             </div>
         </div>
 
-        <!-- Abstract Tech Element -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-800 pointer-events-none opacity-20 no-print">
-            <i class="fas fa-code text-[20rem] animate-pulse-slow"></i>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-20">
+            <i class="fas fa-chevron-down text-2xl"></i>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 pb-32">
+    <main class="max-w-6xl mx-auto px-6 pb-40">
 
-        <!-- Bento Grid: Summary & Stats -->
-        <div class="bento-grid mb-32">
-            <!-- About -->
-            <div class="glass-card p-10 rounded-[3rem] md:col-span-2 flex flex-col justify-between" data-aos="fade-up">
-                <div>
-                    <h2 class="text-primary text-[10px] font-black uppercase tracking-[0.4em] mb-6">Expertise</h2>
-                    <p class="text-2xl font-light leading-relaxed">
-                        Transforming complex business logic into <span class="text-white font-semibold">seamless mobile interfaces</span>. 1.5+ years of driving efficiency through clean architecture and optimized codebases.
-                    </p>
-                </div>
-                <div class="flex gap-4 mt-10">
-                    <span class="bg-white/5 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border border-white/5">Clean Arch</span>
-                    <span class="bg-white/5 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border border-white/5">MVVM</span>
+        <!-- Bento Grid: The Identity -->
+        <div id="about" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-40">
+            <div class="md:col-span-2 glass p-12 rounded-[2.5rem] bento-item" data-aos="fade-right">
+                <h3 class="text-3xl font-bold mb-6 italic">Engineering Philosophy</h3>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8 font-light">
+                    আমি বিশ্বাস করি একটি সফল অ্যাপ শুধুমাত্র কোড নয়, এটি একটি সমস্যার সমাধান। গত ১.৫ বছরে আমি এমন সব সিস্টেম তৈরি করেছি যা হাজার হাজার মানুষের কাজের গতি বাড়িয়েছে—বিশেষ করে <span class="text-white font-semibold italic text-brand-500">ERP এবং Supply Chain</span> ইন্ডাস্ট্রিতে।
+                </p>
+                <div class="flex gap-4">
+                    <span class="bg-brand-500/10 text-brand-500 px-4 py-1.5 rounded-full text-[10px] font-bold border border-brand-500/20 uppercase tracking-widest">Native Expert</span>
+                    <span class="bg-accent/10 text-accent px-4 py-1.5 rounded-full text-[10px] font-bold border border-accent/20 uppercase tracking-widest">Flutter Hero</span>
                 </div>
             </div>
 
-            <!-- Profile Image -->
-            <div class="glass-card p-4 rounded-[3rem] flex items-center justify-center relative group" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://github.com/mdkutub1787.png" alt="Md. Kutub Uddin" class="w-full h-full object-cover rounded-[2.5rem] grayscale group-hover:grayscale-0 transition-all duration-700">
-                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 rounded-[2.5rem] transition-all"></div>
+            <div class="glass p-4 rounded-[2.5rem] bento-item relative overflow-hidden group" data-aos="fade-left">
+                <img src="https://github.com/mdkutub1787.png" alt="Profile" class="w-full h-full object-cover rounded-[2rem] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-950 to-transparent opacity-60"></div>
+                <div class="absolute bottom-8 left-8">
+                    <p class="text-white font-bold">KUTUB.</p>
+                    <p class="text-slate-400 text-xs">Based in Dhaka, BD</p>
+                </div>
             </div>
 
-            <!-- Stats/Stack -->
-            <div class="glass-card p-10 rounded-[3rem] flex flex-col justify-center text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-5xl font-black text-white mb-2">1.5+</div>
-                <p class="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Years Exp</p>
-                <div class="mt-8 pt-8 border-t border-white/5">
-                    <div class="text-2xl font-bold text-primary">20+</div>
-                    <p class="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Modules Deployed</p>
+            <div class="glass p-10 rounded-[2.5rem] bento-item flex flex-col items-center justify-center text-center" data-aos="fade-up">
+                <p class="text-5xl font-black text-brand-500">18+</p>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mt-2">Months Exp</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] bento-item md:col-span-2 flex items-center justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex -space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-brand-950 flex items-center justify-center"><i class="fab fa-android text-brand-500"></i></div>
+                    <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-brand-950 flex items-center justify-center"><i class="fas fa-bolt text-accent"></i></div>
+                    <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-brand-950 flex items-center justify-center"><i class="fas fa-server text-white"></i></div>
                 </div>
+                <p class="text-sm font-bold uppercase tracking-widest text-slate-400">Optimizing Performance @ Logic Software</p>
             </div>
         </div>
 
-        <!-- Experience: The Professional Path -->
-        <section id="experience" class="mb-32">
-            <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter mb-16 gradient-text">ENGINEERING <br> <span class="italic text-slate-600">JOURNEY</span></h2>
-
-            <div class="space-y-6">
-                <div class="glass-card p-12 rounded-[3.5rem] border-l-4 border-l-primary group" data-aos="fade-left">
-                    <div class="flex flex-col lg:flex-row justify-between gap-8">
-                        <div class="flex items-start gap-8">
-                            <div class="w-20 h-20 bg-white rounded-3xl p-4 shadow-2xl flex-shrink-0 group-hover:rotate-6 transition-transform">
-                                <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-black text-white uppercase tracking-tighter mb-1">Jr. Apps Developer</h3>
-                                <p class="text-primary font-bold uppercase tracking-[0.2em] text-xs">Logic Software Ltd.</p>
-                                <div class="mt-8 space-y-4 max-w-2xl">
-                                    <div class="flex gap-4">
-                                        <div class="w-1 h-1 rounded-full bg-primary mt-3 flex-shrink-0"></div>
-                                        <p class="text-slate-400 leading-relaxed">Spearheaded the development of <span class="text-white">SmartTrack ERP</span> modules, integrating Zebra RFID and Bixolon SDKs for real-time inventory precision.</p>
-                                    </div>
-                                    <div class="flex gap-4">
-                                        <div class="w-1 h-1 rounded-full bg-primary mt-3 flex-shrink-0"></div>
-                                        <p class="text-slate-400 leading-relaxed">Architected modular UI components using <span class="text-white">Flutter</span> for cross-platform HRM systems, serving 10,000+ corporate users.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 bg-white/5 px-6 py-2 rounded-full border border-white/10">2025 - PRESENT</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Arsenal -->
-        <section class="mb-32">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="glass-card p-8 rounded-[2.5rem] text-center" data-aos="fade-up">
-                    <i class="fab fa-android text-4xl text-primary mb-6"></i>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">Android</h4>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase">Java • Kotlin</p>
-                </div>
-                <div class="glass-card p-8 rounded-[2.5rem] text-center" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-rocket text-4xl text-accent mb-6"></i>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">Cross-Platform</h4>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase">Flutter • Dart</p>
-                </div>
-                <div class="glass-card p-8 rounded-[2.5rem] text-center" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-database text-4xl text-purple-500 mb-6"></i>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">Backend</h4>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase">Spring Boot • MySQL</p>
-                </div>
-                <div class="glass-card p-8 rounded-[2.5rem] text-center" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-microchip text-4xl text-orange-500 mb-6"></i>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">Specialized</h4>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase">RFID • ML Kit</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Featured Projects -->
-        <section id="projects" class="mb-32">
-            <div class="flex justify-between items-end mb-16">
-                <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter gradient-text">CRAFTED <br> <span class="italic text-slate-600">SOLUTIONS</span></h2>
+        <section id="work" class="mb-40">
+            <div class="flex items-center gap-6 mb-20">
+                <h2 class="text-5xl font-black tracking-tighter">WORKS</h2>
+                <div class="h-px flex-grow bg-slate-800"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Project 1 -->
-                <div class="group relative bg-slate-900 rounded-[3.5rem] overflow-hidden shadow-2xl" data-aos="fade-up">
-                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-                    <div class="p-12 relative z-10">
-                        <div class="flex justify-between items-center mb-10">
-                            <div class="bg-white p-3 rounded-2xl w-14 h-14">
-                                <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex gap-4 text-2xl text-slate-500">
-                                <i class="fab fa-apple"></i> <i class="fab fa-google-play"></i>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project Card -->
+                <div class="group cursor-pointer" data-aos="zoom-in-up">
+                    <div class="relative overflow-hidden rounded-[2.5rem] aspect-video glass mb-8">
+                        <div class="absolute inset-0 bg-brand-500/20 group-hover:bg-transparent transition-all duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                            <i class="fas fa-external-link-alt text-4xl"></i>
                         </div>
-                        <h3 class="text-3xl font-black text-white mb-4 uppercase italic tracking-tighter">Platform SmartTrack</h3>
-                        <p class="text-slate-400 leading-relaxed mb-8">Revolutionizing textile production tracking with industrial-grade RFID integration and real-time data sync.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/10">Native Java</span>
-                            <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/10">RFID SDK</span>
+                        <!-- Mockup Image would go here -->
+                        <div class="p-12">
+                            <img src="logic.png" alt="Logic" class="w-16 mb-6">
+                            <h4 class="text-4xl font-black italic">SMART TRACK</h4>
                         </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="flex gap-3 mb-4">
+                            <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">Android Native</span>
+                            <span class="font-mono text-[10px] text-accent uppercase tracking-widest">RFID Integration</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Industrial Production Ecosystem</h3>
+                        <p class="text-slate-500 font-light">Complete logistics and production tracking for garments industries using high-frequency RFID tech.</p>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="glass-card p-12 rounded-[3.5rem] group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-between items-center mb-10">
-                        <div class="bg-white p-3 rounded-2xl w-14 h-14 shadow-xl">
-                            <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
-                        </div>
-                        <div class="flex gap-4 text-2xl text-slate-500">
-                            <i class="fab fa-apple"></i> <i class="fab fa-google-play"></i>
+                <!-- Project Card 2 -->
+                <div class="group cursor-pointer" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-[2.5rem] aspect-video glass mb-8">
+                        <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-all duration-500"></div>
+                        <div class="p-12">
+                            <img src="logic.png" alt="Logic" class="w-16 mb-6">
+                            <h4 class="text-4xl font-black italic">PLATFORM HRM</h4>
                         </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-4 uppercase italic tracking-tighter">Platform HRM</h3>
-                    <p class="text-slate-400 leading-relaxed mb-8">A sleek, performance-first Flutter application for enterprise resource management and employee lifecycle.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/10">Flutter</span>
-                        <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/10">Firebase</span>
+                    <div class="px-4">
+                        <div class="flex gap-3 mb-4">
+                            <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">Flutter</span>
+                            <span class="font-mono text-[10px] text-white uppercase tracking-widest">Modular Arch</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Enterprise HR Solution</h3>
+                        <p class="text-slate-500 font-light">A performance-optimized mobile application managing 10k+ employees with modular features.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Grid -->
-        <section id="education" class="mb-32">
-            <h2 class="text-center text-[10px] font-black text-primary uppercase tracking-[0.5em] mb-16">Background & Identity</h2>
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="glass-card p-10 rounded-[3rem]" data-aos="fade-right">
-                    <h3 class="text-2xl font-black text-white mb-10 italic uppercase">Academic Pillars</h3>
-                    <div class="space-y-8">
-                        <div class="flex gap-6 items-center">
-                            <img src="idb.png" alt="IsDB" class="w-16 h-16 object-contain">
-                            <div>
-                                <p class="text-white font-bold text-lg">Diploma in Full Stack Development</p>
-                                <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">IsDB-BISEW IT Programme • 2024</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6 items-center">
-                            <img src="dc.png" alt="DC" class="w-16 h-16 object-contain">
-                            <div>
-                                <p class="text-white font-bold text-lg">MSS & BSS in Economics</p>
-                                <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Dhaka College • 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-10 rounded-[3rem]" data-aos="fade-left">
-                    <h3 class="text-2xl font-black text-white mb-10 italic uppercase">Vital Dossier</h3>
-                    <div class="grid grid-cols-2 gap-y-8 gap-x-4">
-                        <div>
-                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">D.O.B</p>
-                            <p class="font-bold text-slate-200">13 Aug, 2000</p>
-                        </div>
-                        <div>
-                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Blood</p>
-                            <p class="font-bold text-red-500">B+ (Positive)</p>
-                        </div>
-                        <div>
-                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Status</p>
-                            <p class="font-bold text-slate-200">Married</p>
-                        </div>
-                        <div>
-                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Nationality</p>
-                            <p class="font-bold text-slate-200">Bangladeshi</p>
-                        </div>
-                        <div class="col-span-2 pt-4 border-t border-white/5">
-                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Current Base</p>
-                            <p class="font-bold text-slate-200 italic">Dakshinkhan, Dhaka, Bangladesh</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- Contact Section -->
+        <section id="contact" class="glass rounded-[4rem] p-16 md:p-24 text-center relative overflow-hidden" data-aos="flip-up">
+            <div class="absolute top-0 right-0 p-12 opacity-5">
+                <i class="fas fa-paper-plane text-[15rem]"></i>
+            </div>
+            <h2 class="text-4xl md:text-7xl font-black tracking-tighter mb-10 italic">READY TO BUILD <br> SOMETHING EPIC?</h2>
+            <p class="text-slate-400 text-xl mb-16 max-w-lg mx-auto">নতুন কোনো প্রজেক্ট বা আইডিয়া নিয়ে আলোচনা করতে চান? আমি সবসময় প্রস্তুত।</p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a href="mailto:mdkutub150@gmail.com" class="text-2xl font-bold border-b-4 border-brand-500 hover:text-brand-500 transition-all pb-2">mdkutub150@gmail.com</a>
+                <a href="tel:+8801763001787" class="text-2xl font-bold border-b-4 border-accent hover:text-accent transition-all pb-2">+880 1763001787</a>
             </div>
         </section>
 
     </main>
 
-    <!-- Hyper-Modern Footer -->
-    <footer class="relative pt-32 pb-16 bg-slate-950 overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-5xl md:text-8xl font-display font-black text-white/5 mb-16 no-print">BUILDING THE FUTURE.</h2>
-
-            <div class="flex flex-col items-center gap-6 mb-20">
-                <div class="w-16 h-1 bg-primary rounded-full"></div>
-                <p class="text-3xl font-display font-bold uppercase tracking-widest">MD. KUTUB UDDIN</p>
-                <div class="flex gap-6 text-2xl text-slate-500 no-print">
-                    <a href="https://github.com/mdkutub1787" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/md-kutub-uddin-967972310" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:mdkutub150@gmail.com" class="hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-
-            <p class="text-[10px] text-slate-700 font-black uppercase tracking-[0.5em] pt-12 border-t border-white/5 italic">
-                © <span id="year"></span> • Designed for Impact • Engineered with Precision
-            </p>
+    <footer class="py-20 text-center border-t border-slate-900">
+        <div class="flex justify-center gap-12 mb-10 text-slate-500">
+            <a href="https://github.com/mdkutub1787" class="hover:text-white transition-colors"><i class="fab fa-github text-2xl"></i></a>
+            <a href="https://linkedin.com/in/md-kutub-uddin-967972310" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
         </div>
+        <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-700 italic">
+            © 2025 • ENGINEERED WITH PRECISION BY KUTUB.
+        </p>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, easing: 'ease-out-expo' });
-        document.getElementById('year').textContent = new Date().getFullYear();
+        AOS.init({ duration: 1000, once: true });
 
-        // Magnetic Effect Logic
-        document.querySelectorAll('.btn-magnetic').forEach(btn => {
-            btn.addEventListener('mousemove', e => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        // Spotlight & Cursor Logic
+        const spotlight = document.getElementById('spotlight');
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+
+        window.addEventListener('mousemove', e => {
+            spotlight.style.setProperty('--x', e.clientX + 'px');
+            spotlight.style.setProperty('--y', e.clientY + 'px');
+
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            setTimeout(() => {
+                follower.style.left = e.clientX - 15 + 'px';
+                follower.style.top = e.clientY - 15 + 'px';
+            }, 50);
+        });
+
+        // Hover Effect for Cursor
+        document.querySelectorAll('a, button, .bento-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.style.transform = 'scale(2)';
+                follower.style.background = 'rgba(59, 130, 246, 0.1)';
             });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
+            el.addEventListener('mouseleave', () => {
+                follower.style.transform = 'scale(1)';
+                follower.style.background = 'transparent';
             });
         });
     </script>
