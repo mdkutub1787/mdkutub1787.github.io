@@ -256,7 +256,7 @@
             </div>
 
             <div class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm tracking-widest uppercase">
-                <p>© 2024 Md. Kutub Uddin • Mobile Developer</p>
+                <p>© <span id="year">2025</span> Md. Kutub Uddin • Architecting Efficiency</p>
                 <div class="flex gap-8 text-2xl">
                     <a href="https://github.com/mdkutub1787" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/md-kutub-uddin-967972310" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
@@ -264,6 +264,11 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Update year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
