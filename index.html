@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Kutub Uddin | Mobile Architect</title>
+    <title>Md. Kutub Uddin | Mobile App Developer Portfolio</title>
 
+    <!-- Modern Tech Stack -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
-                        brand: { 500: '#3b82f6', 600: '#2563eb', 950: '#020617' },
-                        accent: '#2dd4bf',
+                        primary: '#4f46e5',
+                        secondary: '#0ea5e9',
+                        accent: '#f43f5e',
                     }
                 }
             }
@@ -29,265 +28,301 @@
 
     <style>
         body {
-            background-color: #020617;
-            color: #e2e8f0;
-            overflow-x: hidden;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
 
-        /* Prevent overlapping when scrolling to IDs */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #4f46e5, transparent),
+                        radial-gradient(circle at bottom left, #0ea5e9, transparent),
+                        linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-shadow:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(to right, #4f46e5, #0ea5e9);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
+        }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold mb-12 text-slate-900 tracking-tight flex items-center gap-4;
+        }
+
+        .skill-badge {
+            @apply bg-white px-4 py-2 rounded-2xl text-sm font-bold shadow-sm border border-slate-100 flex items-center gap-2 hover:border-primary transition-colors;
+        }
+
         section { scroll-margin-top: 100px; }
 
-        .glass {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #fff, #3b82f6, #2dd4bf, #fff);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            animation: shine 8s linear infinite;
-        }
-
-        @keyframes shine { to { background-position: 200% center; } }
-
-        /* Custom Cursor - Hidden on Touch */
-        @media (hover: hover) and (pointer: fine) {
-            body { cursor: none; }
-            #cursor, #cursor-follower { display: block; }
-        }
-
-        #cursor, #cursor-follower {
-            display: none; position: fixed; pointer-events: none; z-index: 10000; border-radius: 50%;
-        }
-        #cursor { width: 8px; height: 8px; background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
-        #cursor-follower { width: 36px; height: 36px; border: 1px solid rgba(59, 130, 246, 0.5); transition: transform 0.12s ease-out; }
-
-        /* Ensure no overlapping for grid items */
-        .bento-item { position: relative; z-index: 1; }
-
-        /* Mobile specific fixes */
         @media (max-width: 640px) {
-            .hero-title { font-size: 3rem; word-break: break-word; }
-            .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+            .hero-text { font-size: 3.5rem; }
         }
     </style>
 </head>
-<body class="selection:bg-brand-500/30">
+<body class="antialiased">
 
-    <div id="cursor"></div>
-    <div id="cursor-follower"></div>
-
-    <!-- Navigation: Higher Z-index to stay on top but not overlap content -->
-    <nav class="fixed top-0 left-0 w-full z-[9999] p-4 md:p-6 bg-brand-950/50 backdrop-blur-lg border-b border-white/5 md:bg-transparent md:backdrop-blur-none md:border-none">
-        <div class="max-w-6xl mx-auto glass rounded-2xl md:rounded-full py-3 px-6 md:px-10 flex justify-between items-center shadow-2xl">
-            <a href="#" class="text-xl md:text-2xl font-black tracking-tighter uppercase italic">
-                K<span class="text-brand-500">.</span>
-            </a>
-            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                <a href="#about" class="hover:text-white transition-colors">Intro</a>
-                <a href="#work" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black text-primary tracking-tighter uppercase italic">KUTUB<span class="text-secondary">.</span></a>
+            <div class="hidden md:flex gap-8 font-bold text-slate-600 text-sm uppercase tracking-widest">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
             </div>
-            <a href="mailto:mdkutub150@gmail.com" class="text-[10px] font-bold uppercase tracking-widest bg-brand-500 text-white px-5 py-2 rounded-full hover:bg-brand-600 transition-all">
-                Let's Talk
-            </a>
+            <a href="mailto:mdkutub150@gmail.com" class="btn-gradient text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest shadow-lg">Contact Me</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="min-h-screen flex flex-col justify-center items-center relative px-6 text-center pt-32 pb-20">
-        <div data-aos="fade-up" class="w-full max-w-5xl">
-            <h2 class="text-brand-500 font-mono text-[10px] md:text-xs mb-6 tracking-[0.4em] uppercase">>> System Architect & Dev</h2>
-            <h1 class="hero-title text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 text-gradient uppercase leading-tight">
-                Md. Kutub <br class="hidden md:block"> Uddin
-            </h1>
-            <p class="max-w-2xl mx-auto text-slate-400 text-base md:text-xl font-light mb-12 leading-relaxed">
-                Transforming complex business logic into <span class="text-white border-b border-brand-500">Elegant Mobile Solutions</span>. <br class="hidden md:block"> 1.5+ years of driving industrial efficiency.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                <a href="cv.pdf" target="_blank" class="glass px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-black transition-all">
-                    <i class="fas fa-file-pdf"></i> VIEW CV
-                </a>
-                <a href="#work" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-500 hover:text-white transition-all shadow-xl">
-                    PORTFOLIO
-                </a>
+    <header class="hero-gradient text-white pt-40 pb-56 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+                <div class="text-center lg:text-left flex-1" data-aos="fade-right">
+                    <span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8 inline-block">Mobile App Architect</span>
+                    <h1 class="hero-text text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-tight">Md. Kutub Uddin</h1>
+                    <p class="text-xl md:text-2xl text-white/80 mb-12 font-light max-w-2xl">Crafting high-performance <span class="font-bold text-white underline decoration-accent decoration-4">Native Android</span> & <span class="font-bold text-white underline decoration-secondary decoration-4">Flutter</span> applications for enterprise ecosystems.</p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+                        <a href="cv.pdf" target="_blank" class="bg-white text-primary px-10 py-4 rounded-2xl font-bold flex items-center gap-3 shadow-2xl hover:bg-slate-50 transition-all">
+                            <i class="fas fa-file-pdf"></i> DOWNLOAD CV
+                        </a>
+                        <a href="#projects" class="bg-slate-900/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-white/10 transition-all">
+                            VIEW PROJECTS
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative" data-aos="zoom-in">
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-white/20 blur-3xl rounded-full opacity-50"></div>
+                        <img src="https://github.com/mdkutub1787.png" alt="Profile" class="w-64 h-64 md:w-80 md:h-80 rounded-[50px] border-8 border-white/20 object-cover shadow-2xl relative z-10 group-hover:rotate-3 transition-transform duration-500">
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-24 text-slate-50 fill-current">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.17,75.03,123.38,58.33,185.18,50.16c62.88-8.33,123.11,2.06,136.21,6.28Z"></path>
+            </svg>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 space-y-32 md:space-y-48 pb-32">
+    <main class="max-w-7xl mx-auto px-6 -mt-20 relative z-20 pb-20">
 
-        <!-- About Section (Bento) -->
-        <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Main Content -->
-            <div class="md:col-span-2 glass p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] bento-item flex flex-col justify-between" data-aos="fade-up">
+        <!-- Quick Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6" data-aos="fade-up">
+                <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-primary text-2xl">
+                    <i class="fas fa-code"></i>
+                </div>
                 <div>
-                    <span class="text-brand-500 text-[10px] font-bold uppercase tracking-widest mb-6 block">Professional Persona</span>
-                    <h3 class="text-3xl md:text-5xl font-bold mb-8 italic tracking-tight text-white leading-tight">Native Strength, <br> Cross-Platform Agility.</h3>
-                    <p class="text-slate-400 text-base md:text-lg leading-relaxed font-light mb-8">
-                        আমি একজন <span class="text-white font-medium">Mobile Application Developer</span> যারা ইন্ডাস্ট্রিতে <span class="text-brand-500 italic">Smart ERP</span> সল্যুশন নিয়ে কাজ করি। আমার কাজের মূলে থাকে <span class="text-white">Clean Code</span> এবং <span class="text-white">High Performance</span>। জটিল সিস্টেমকে সহজভাবে ইউজারের সামনে তুলে ধরাই আমার নেশা।
+                    <p class="text-3xl font-black text-slate-900">1.5+</p>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest">Years Experience</p>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-secondary text-2xl">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div>
+                    <p class="text-3xl font-black text-slate-900">10+</p>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest">Major Modules</p>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center text-accent text-2xl">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <p class="text-3xl font-black text-slate-900">10k+</p>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest">App Users</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <section id="about" class="mb-32">
+            <div class="bg-white p-10 md:p-16 rounded-[40px] shadow-xl border border-slate-50 flex flex-col lg:flex-row gap-16 items-center" data-aos="fade-up">
+                <div class="lg:w-2/3">
+                    <h2 class="section-title"><i class="fas fa-user-tie text-primary"></i> Professional Summary</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                        Analytical and results-driven **Mobile Application Developer** with a solid foundation in **Native Android (Java)** and **Flutter**. I specialize in building enterprise-grade ecosystems for **ERP, HRM, and Supply Chain** management.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        আমার কাজের বিশেষত্ব হলো হার্ডওয়্যার ইন্টিগ্রেশন। আমি সফলভাবে **Zebra RFID SDK** এবং **Bixolon Thermal Printer SDK** ব্যবহার করে প্রোডাকশন ট্র্যাকিং সিস্টেম তৈরি করেছি। এছাড়াও Google ML Kit এর মাধ্যমে হাই-স্পিড স্ক্যানিং সল্যুশন নিয়ে আমার কাজ করার অভিজ্ঞতা রয়েছে।
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-white/5 px-4 py-2 rounded-xl text-[10px] font-bold border border-white/10 text-slate-300 uppercase">Android Native</span>
-                    <span class="bg-white/5 px-4 py-2 rounded-xl text-[10px] font-bold border border-white/10 text-slate-300 uppercase">Flutter</span>
-                    <span class="bg-white/5 px-4 py-2 rounded-xl text-[10px] font-bold border border-white/10 text-slate-300 uppercase">Spring Boot</span>
+                <div class="lg:w-1/3 grid grid-cols-2 gap-4">
+                    <div class="skill-badge"><i class="fab fa-android text-green-500"></i> Android</div>
+                    <div class="skill-badge"><i class="fas fa-bolt text-secondary"></i> Flutter</div>
+                    <div class="skill-badge"><i class="fab fa-java text-red-500"></i> Java</div>
+                    <div class="skill-badge"><i class="fas fa-database text-blue-500"></i> MySQL</div>
+                    <div class="skill-badge"><i class="fas fa-leaf text-green-600"></i> Spring</div>
+                    <div class="skill-badge"><i class="fas fa-code-branch text-slate-600"></i> Git</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Profile Frame -->
-            <div class="glass p-4 rounded-[2rem] md:rounded-[3rem] bento-item group overflow-hidden h-80 md:h-auto" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://github.com/mdkutub1787.png" alt="Profile" class="w-full h-full object-cover rounded-2xl md:rounded-[2.5rem] transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 to-transparent"></div>
-                <div class="absolute bottom-8 left-8">
-                    <p class="text-white font-bold text-lg">MD. KUTUB UDDIN</p>
-                    <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Dhaka, Bangladesh</p>
-                </div>
-            </div>
-
-            <!-- Experience Card -->
-            <div class="glass p-10 rounded-[2rem] md:rounded-[2.5rem] bento-item flex flex-col items-center justify-center text-center" data-aos="fade-up">
-                <p class="text-5xl md:text-6xl font-black text-brand-500">18+</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mt-4">Months of Innovation</p>
-            </div>
-
-            <!-- Current Role Card -->
-            <div class="glass p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bento-item md:col-span-2 flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-center gap-6">
-                    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 flex items-center justify-center border border-brand-500/20">
-                        <i class="fab fa-android text-3xl text-brand-500"></i>
+        <!-- Experience Timeline -->
+        <section id="experience" class="mb-32">
+            <h2 class="section-title"><i class="fas fa-briefcase text-primary"></i> Work Experience</h2>
+            <div class="space-y-8">
+                <div class="bg-white p-10 rounded-[40px] shadow-lg border border-slate-100 card-shadow" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-6">
+                        <div class="flex items-center gap-6">
+                            <div class="w-20 h-20 bg-slate-50 rounded-2xl p-4 shadow-inner border border-slate-100">
+                                <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-extrabold text-slate-900">Jr. Apps Developer</h3>
+                                <p class="text-primary text-xl font-bold">Logic Software Ltd.</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 text-primary px-6 py-2 rounded-2xl font-bold text-sm uppercase tracking-widest">Jan 2025 – Present</div>
                     </div>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600 text-lg">
+                        <li class="flex gap-4"><i class="fas fa-check-circle text-primary mt-1.5 flex-shrink-0"></i> <span>Developed Smart Production Tracking for textile industries.</span></li>
+                        <li class="flex gap-4"><i class="fas fa-check-circle text-primary mt-1.5 flex-shrink-0"></i> <span>Integrated Zebra RFID & Bixolon Printer SDKs.</span></li>
+                        <li class="flex gap-4"><i class="fas fa-check-circle text-primary mt-1.5 flex-shrink-0"></i> <span>Optimized performance using MVVM and Dagger 2.</span></li>
+                        <li class="flex gap-4"><i class="fas fa-check-circle text-primary mt-1.5 flex-shrink-0"></i> <span>Engineered dynamic PDF reports using iTextG.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section id="projects" class="mb-32">
+            <h2 class="section-title"><i class="fas fa-cubes text-primary"></i> Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- SmartTrack -->
+                <div class="bg-white rounded-[40px] p-10 border border-slate-100 shadow-xl card-shadow group" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-10">
+                        <div class="w-20 h-20 bg-slate-50 rounded-3xl p-4 shadow-sm border border-slate-100 group-hover:rotate-6 transition-transform">
+                            <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-slate-300 hover:text-primary transition-colors text-3xl"><i class="fab fa-google-play"></i></a>
+                            <a href="#" class="text-slate-300 hover:text-primary transition-colors text-3xl"><i class="fab fa-apple"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 uppercase tracking-tighter italic text-slate-900">Platform SmartTrack</h3>
+                    <p class="text-slate-500 text-lg mb-8 leading-relaxed">
+                        ইন্ডাস্ট্রিয়াল লেভেল প্রোডাকশন ট্র্যাকিং সিস্টেম। এতে আরএফআইডি (RFID) এবং ব্লুটুথ লেবেল প্রিন্টিং ফিচার রয়েছে যা ইনভেন্টরি ম্যানেজমেন্টকে সহজ করে।
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-50">
+                        <span class="bg-indigo-50 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">Java Native</span>
+                        <span class="bg-blue-50 text-secondary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">RFID SDK</span>
+                    </div>
+                </div>
+
+                <!-- Platform HRM -->
+                <div class="bg-white rounded-[40px] p-10 border border-slate-100 shadow-xl card-shadow group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-10">
+                        <div class="w-20 h-20 bg-slate-50 rounded-3xl p-4 shadow-sm border border-slate-100 group-hover:rotate-6 transition-transform">
+                            <img src="logic.png" alt="Logic" class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.logicsoftbd.hrm" class="text-slate-300 hover:text-green-500 transition-colors text-3xl"><i class="fab fa-google-play"></i></a>
+                            <a href="https://apps.apple.com/gb/app/platform-hrm/id6771622206" class="text-slate-300 hover:text-primary transition-colors text-3xl"><i class="fab fa-apple"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 uppercase tracking-tighter italic text-primary">Platform HRM</h3>
+                    <p class="text-slate-500 text-lg mb-8 leading-relaxed">
+                        একটি শক্তিশালী হিউম্যান রিসোর্স ম্যানেজমেন্ট অ্যাপ। এটি ফ্লাটার (Flutter) দিয়ে তৈরি এবং ১০ হাজারেরও বেশি ইউজার এটি নিয়মিত ব্যবহার করে।
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-50">
+                        <span class="bg-indigo-50 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">Flutter</span>
+                        <span class="bg-blue-50 text-secondary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">REST API</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education History -->
+        <section id="education" class="mb-32">
+            <h2 class="section-title"><i class="fas fa-graduation-cap text-primary"></i> Education History</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-[3rem] shadow-lg border border-slate-100 flex items-center gap-8 card-shadow" data-aos="fade-right">
+                    <img src="idb.png" alt="IsDB" class="w-20 h-20 object-contain rounded-2xl bg-slate-50 p-2">
                     <div>
-                        <p class="text-white font-bold text-xl leading-none mb-2">Logic Software Ltd.</p>
-                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Jr. Mobile App Developer</p>
+                        <h4 class="text-xl font-black text-slate-900 leading-tight">Diploma in Full Stack Development</h4>
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mt-1">IsDB-BISEW Programme • 2024</p>
                     </div>
                 </div>
-                <div class="flex gap-6 opacity-30">
-                    <i class="fab fa-java text-3xl"></i>
-                    <i class="fas fa-bolt text-3xl"></i>
-                    <i class="fab fa-google text-3xl"></i>
-                </div>
-            </div>
-        </section>
-
-        <!-- Works Section -->
-        <section id="work" class="space-y-16">
-            <div class="flex flex-col md:flex-row md:items-end gap-4">
-                <h2 class="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase italic">Works</h2>
-                <p class="text-slate-500 font-mono text-sm uppercase tracking-widest mb-2 md:ml-6">/ Engineering Case Studies</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
-                <!-- Project 1 -->
-                <div class="group block" data-aos="fade-up">
-                    <div class="relative overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] aspect-video glass border border-white/5 mb-8">
-                        <div class="absolute inset-0 bg-brand-500/10 group-hover:bg-transparent transition-all duration-500"></div>
-                        <div class="p-10 md:p-16 h-full flex flex-col justify-between relative z-10">
-                            <img src="logic.png" alt="Logic" class="w-16 md:w-20">
-                            <h4 class="text-4xl md:text-6xl font-black text-white italic leading-[0.85] group-hover:text-brand-500 transition-colors">SMART <br> TRACK</h4>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <div class="flex gap-4 mb-4">
-                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest">Native Tech</span>
-                            <span class="text-[10px] font-bold text-accent uppercase tracking-widest">RFID Expert</span>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">Industrial Production ERP</h3>
-                        <p class="text-slate-500 text-base md:text-lg leading-relaxed font-light">RFID এবং ব্লুটুথ প্রিন্টিং প্রযুক্তির মাধ্যমে টেক্সটাইল প্রোডাকশন ট্র্যাকিং সিস্টেম।</p>
+                <div class="bg-white p-8 rounded-[3rem] shadow-lg border border-slate-100 flex items-center gap-8 card-shadow" data-aos="fade-left">
+                    <img src="dc.png" alt="DC" class="w-20 h-20 object-contain rounded-2xl bg-slate-50 p-2">
+                    <div>
+                        <h4 class="text-xl font-black text-slate-900 leading-tight">MSS & BSS in Economics</h4>
+                        <p class="text-rose-600 font-bold text-xs uppercase tracking-widest mt-1">Dhaka College • 2023</p>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="group block" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] aspect-video glass border border-white/5 mb-8">
-                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-all duration-500"></div>
-                        <div class="p-10 md:p-16 h-full flex flex-col justify-between relative z-10">
-                            <img src="logic.png" alt="Logic" class="w-16 md:w-20">
-                            <h4 class="text-4xl md:text-6xl font-black text-white italic leading-[0.85] group-hover:text-accent transition-colors">PLATFORM <br> HRM</h4>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <div class="flex gap-4 mb-4">
-                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest">Flutter</span>
-                            <span class="text-[10px] font-bold text-white uppercase tracking-widest">Performance</span>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">Corporate Human Resource</h3>
-                        <p class="text-slate-500 text-base md:text-lg leading-relaxed font-light">১০,০০০+ কর্মীর জন্য তৈরি মডুলার আর্কিটেকচারের হাই-পারফরম্যান্স HRM অ্যাপ্লিকেশন।</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="glass rounded-[3rem] md:rounded-[5rem] p-12 md:p-32 text-center relative overflow-hidden" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-8xl font-black tracking-tighter mb-10 italic uppercase text-white leading-none">Let's <br> Connect</h2>
-            <p class="text-slate-400 text-lg md:text-2xl mb-16 max-w-xl mx-auto font-light leading-relaxed">
-                যেকোনো প্রজেক্ট, আইডিয়া বা কোলাবোরেশনের জন্য আমি সবসময় উন্মুক্ত। সরাসরি যোগাযোগ করুন নিচের মাধ্যমে।
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-                <a href="mailto:mdkutub150@gmail.com" class="text-xl md:text-3xl font-bold border-b-2 md:border-b-4 border-brand-500 hover:text-brand-500 transition-all pb-2">mdkutub150@gmail.com</a>
-                <a href="tel:+8801763001787" class="text-xl md:text-3xl font-bold border-b-2 md:border-b-4 border-accent hover:text-accent transition-all pb-2">+880 1763001787</a>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="py-20 text-center border-t border-white/5 px-6 mt-20">
-        <div class="flex justify-center gap-12 mb-10 text-slate-500">
-            <a href="https://github.com/mdkutub1787" target="_blank" class="hover:text-white transition-all transform hover:-translate-y-1 text-2xl"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/md-kutub-uddin-967972310" target="_blank" class="hover:text-white transition-all transform hover:-translate-y-1 text-2xl"><i class="fab fa-linkedin"></i></a>
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-slate-900 text-white pt-32 pb-16 px-6 relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl md:text-7xl font-black mb-16 italic tracking-tighter opacity-20">BUILDING SOLUTIONS.</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+                <div class="flex flex-col items-center gap-6" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-white/5 rounded-[2.5rem] flex items-center justify-center text-3xl text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <p class="text-xl font-bold">mdkutub150@gmail.com</p>
+                </div>
+                <div class="flex flex-col items-center gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-white/5 rounded-[2.5rem] flex items-center justify-center text-3xl text-green-500 hover:bg-green-500 hover:text-white transition-all cursor-pointer">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <p class="text-xl font-bold">+880 1763001787</p>
+                </div>
+                <div class="flex flex-col items-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-white/5 rounded-[2.5rem] flex items-center justify-center text-3xl text-blue-500 hover:bg-blue-500 hover:text-white transition-all cursor-pointer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <p class="text-xl font-bold">Linkedin Profile</p>
+                </div>
+            </div>
+
+            <div class="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-sm font-bold tracking-widest uppercase opacity-50">© 2025 • Designed & Engineered by Md. Kutub Uddin</p>
+                <div class="flex gap-10 text-2xl opacity-50">
+                    <a href="https://github.com/mdkutub1787" target="_blank" class="hover:opacity-100 transition-opacity"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/md-kutub-uddin-967972310" target="_blank" class="hover:opacity-100 transition-opacity"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
-        <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-700 italic">
-            © 2025 • ENGINEERED WITH PRECISION BY MD. KUTUB UDDIN
-        </p>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true, easing: 'ease-out-quint' });
-
-        const cursor = document.getElementById('cursor');
-        const follower = document.getElementById('cursor-follower');
-
-        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-            window.addEventListener('mousemove', e => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-
-                setTimeout(() => {
-                    follower.style.left = e.clientX - 18 + 'px';
-                    follower.style.top = e.clientY - 18 + 'px';
-                }, 40);
-            });
-
-            document.querySelectorAll('a, button, .glass').forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    follower.style.transform = 'scale(1.5)';
-                    follower.style.background = 'rgba(59, 130, 246, 0.05)';
-                });
-                el.addEventListener('mouseleave', () => {
-                    follower.style.transform = 'scale(1)';
-                    follower.style.background = 'transparent';
-                });
-            });
-        }
-
-        // Mobile Nav Color Logic
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('md:bg-brand-950/20', 'md:backdrop-blur-xl');
-            } else {
-                nav.classList.remove('md:bg-brand-950/20', 'md:backdrop-blur-xl');
-            }
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
