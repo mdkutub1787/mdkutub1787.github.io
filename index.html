@@ -49,10 +49,11 @@
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
         }
 
         .premium-card {
@@ -113,15 +114,15 @@
 <body class="antialiased selection:bg-accent selection:text-white">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass-nav">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="#" class="text-xl font-extrabold tracking-tight text-primary">Kutub<span class="text-accent">.</span></a>
-            <div class="hidden md:flex gap-10 font-medium text-secondary text-sm tracking-wide">
+    <nav class="fixed top-4 w-full z-50 px-4 transition-all duration-300">
+        <div class="max-w-5xl mx-auto glass-nav rounded-full px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter text-primary">KUTUB<span class="text-accent">.</span></a>
+            <div class="hidden md:flex gap-8 font-semibold text-slate-700 text-sm tracking-widest uppercase">
                 <a href="#about" class="hover:text-accent transition-colors">About</a>
                 <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
                 <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
             </div>
-            <a href="mailto:mdkutub150@gmail.com" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide">Let's Talk</a>
+            <a href="mailto:mdkutub150@gmail.com" class="btn-primary px-7 py-3 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">Let's Talk</a>
         </div>
     </nav>
 
@@ -262,8 +263,8 @@
                             <i class="fas fa-users-cog"></i>
                         </div>
                         <div class="flex gap-3">
-                            <a href="https://play.google.com/store/apps/details?id=com.logicsoftbd.hrm" class="text-slate-400 hover:text-accent transition-colors"><i class="fab fa-google-play text-xl"></i></a>
-                            <a href="https://apps.apple.com/gb/app/platform-hrm/id6771622206" class="text-slate-400 hover:text-primary transition-colors"><i class="fab fa-apple text-xl"></i></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.logicsoftbd.hrm" class="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-all shadow-sm hover:shadow-md" title="Google Play Store"><i class="fab fa-google-play text-lg"></i></a>
+                            <a href="https://apps.apple.com/gb/app/platform-hrm/id6771622206" class="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-800 hover:text-white transition-all shadow-sm hover:shadow-md" title="Apple App Store"><i class="fab fa-apple text-xl"></i></a>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-3 tracking-tight text-primary">Platform HRM</h3>
@@ -283,7 +284,7 @@
                             <i class="fas fa-wallet"></i>
                         </div>
                         <div class="flex gap-3">
-                            <a href="https://play.google.com/store/apps/details?id=com.probeshpath.dailyfinance" class="text-slate-400 hover:text-emerald-500 transition-colors"><i class="fab fa-google-play text-xl"></i></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.probeshpath.dailyfinance" class="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-all shadow-sm hover:shadow-md" title="Google Play Store"><i class="fab fa-google-play text-lg"></i></a>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-3 tracking-tight text-primary">Daily Finance</h3>
