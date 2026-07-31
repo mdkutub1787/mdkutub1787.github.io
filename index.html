@@ -1012,7 +1012,7 @@
                 <!-- Right: Form -->
                 <div class="md:col-span-3 bg-slate-900/50 border border-slate-800 rounded-3xl p-8">
                     <!-- Web3Forms Integration -->
-                    <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col h-full">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col h-full">
                         <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="5df055ed-3062-41eb-b72d-95bd760285dc">
                         
@@ -1033,8 +1033,8 @@
                         </div>
                         
                         <div>
-                            <button type="submit" class="bg-white text-slate-900 font-bold px-8 py-4 rounded-2xl flex items-center gap-3 hover:bg-slate-200 transition-colors">
-                                <i class="far fa-paper-plane"></i> Send message
+                            <button type="submit" id="submit-btn" class="bg-white text-slate-900 font-bold px-8 py-4 rounded-xl inline-flex items-center gap-3 hover:bg-slate-200 transition-colors">
+                                <i class="far fa-paper-plane"></i> <span>Send message</span>
                             </button>
                         </div>
                     </form>
@@ -1056,6 +1056,41 @@
             const projectCountElement = document.getElementById('project-count');
             if (projectCountElement && projectCards.length > 0) {
                 projectCountElement.textContent = projectCards.length + '+';
+            }
+
+            // Web3Forms AJAX Submission
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(form);
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(async (response) => {
+                        if (response.status == 200) {
+                            submitBtn.innerHTML = '<i class="fas fa-check text-green-600"></i> <span>Sent Successfully!</span>';
+                            form.reset();
+                        } else {
+                            submitBtn.innerHTML = '<i class="fas fa-exclamation-circle text-red-500"></i> <span>Error! Try again</span>';
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.innerHTML = '<i class="fas fa-exclamation-circle text-red-500"></i> <span>Error! Try again</span>';
+                    })
+                    .finally(() => {
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalBtnText;
+                        }, 4000);
+                    });
+                });
             }
         });
         AOS.init({ duration: 800, once: true, offset: 50 });
