@@ -135,38 +135,47 @@
 
     <!-- Hero Section -->
     <header class="mesh-bg pt-48 pb-32 px-6 relative overflow-hidden text-primary">
-        <div class="max-w-6xl mx-auto relative z-10 flex flex-col items-center text-center">
-            <div data-aos="fade-down" class="mb-8 flex flex-col items-center">
+        <div class="max-w-6xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side (Text) -->
+            <div class="md:col-span-7 flex flex-col items-start text-left order-2 md:order-1" data-aos="fade-right">
+                <!-- Badge -->
+                <span class="inline-block bg-slate-50 border border-slate-200 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase text-slate-500 shadow-sm mb-6">Mobile Application Developer</span>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight leading-tight hero-gradient-text">
+                    Crafting enterprise-grade ERP and mobile solutions with Native Android and Flutter.
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-600 mb-10 font-medium leading-relaxed max-w-2xl">
+                    Specializing in <span class="font-bold text-primary">Native Android</span> & <span class="font-bold text-primary">Flutter</span>. Bringing hardware integration and complex business logic to life.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="Md_Kutub_Uddin_Mobile_Application_Developer_CV.pdf" target="_blank" type="application/pdf" class="bg-primary text-white px-8 py-4 rounded-full font-bold flex justify-center items-center gap-3 hover:bg-slate-800 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
+                        <i class="fas fa-file-pdf"></i> Download Resume
+                    </a>
+                    <a href="#projects" class="bg-white text-primary border border-slate-200 px-8 py-4 rounded-full font-bold flex justify-center items-center gap-3 hover:bg-slate-50 transition-all hover:border-slate-300">
+                        Explore Work <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side (Image) -->
+            <div class="md:col-span-5 flex justify-center md:justify-end order-1 md:order-2 mb-10 md:mb-0" data-aos="fade-left">
                 <!-- Premium Avatar -->
-                <div class="relative mb-6 group">
+                <div class="relative group">
                     <!-- Glow effect -->
-                    <div class="absolute inset-0 bg-slate-200 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-slate-200 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <!-- Gradient border -->
-                    <div class="w-32 h-32 relative rounded-full p-[3px] bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-200 shadow-xl">
+                    <div class="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] relative rounded-[2rem] p-[3px] bg-gradient-to-tr from-zinc-200 via-zinc-400 to-zinc-200 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                         <!-- Inner dark border and image -->
-                        <div class="w-full h-full bg-white rounded-full p-1">
-                            <img src="https://github.com/mdkutub1787.png" alt="Md. Kutub Uddin" class="w-full h-full object-cover rounded-full">
+                        <div class="w-full h-full bg-white rounded-[2rem] p-2 overflow-hidden">
+                            <img src="https://github.com/mdkutub1787.png" alt="Md. Kutub Uddin" class="w-full h-full object-cover rounded-[1.8rem]">
                         </div>
                     </div>
                 </div>
-                <!-- Badge -->
-                <span class="bg-slate-50 border border-slate-200 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase text-slate-500 shadow-sm">Mobile Application Developer</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight hero-gradient-text max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Crafting enterprise-grade ERP and mobile solutions with Native Android and Flutter.
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-12 font-medium max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                Specializing in <span class="font-bold text-primary">Native Android</span> & <span class="font-bold text-primary">Flutter</span>. Bringing hardware integration and complex business logic to life.
-            </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="300">
-                <a href="Md_Kutub_Uddin_Mobile_Application_Developer_CV.pdf" target="_blank" type="application/pdf" class="bg-primary text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
-                    <i class="fas fa-file-pdf"></i> Download Resume
-                </a>
-                <a href="#projects" class="bg-white text-primary border border-slate-200 px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-slate-50 transition-all hover:border-slate-300">
-                    Explore Work <i class="fas fa-arrow-right text-sm"></i>
-                </a>
-            </div>
         </div>
         
         <!-- Subtle gradient overlay at bottom to blend with background -->
