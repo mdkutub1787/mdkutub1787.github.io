@@ -520,7 +520,7 @@
                 </a>
             </div>
 
-            <p class="text-slate-400 text-sm font-medium">© 2025 Md. Kutub Uddin. All rights reserved.</p>
+            <p class="text-slate-400 text-sm font-medium">© <span id="current-year"></span> Md. Kutub Uddin. All rights reserved.</p>
         </div>
     </footer>
 
@@ -528,6 +528,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true, offset: 50 });
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
