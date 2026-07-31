@@ -117,7 +117,12 @@
     <!-- Navbar -->
     <nav class="fixed top-4 w-full z-50 px-4 transition-all duration-300">
         <div class="max-w-5xl mx-auto glass-nav rounded-full px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black tracking-tighter text-primary">KUTUB UDDIN<span class="text-accent">.</span></a>
+            <a href="#" class="flex items-center gap-3 text-2xl font-black tracking-tighter text-primary group">
+                <div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-accent to-purple-500 shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <img src="profile.png" alt="Logo" class="w-full h-full object-cover rounded-full border border-white">
+                </div>
+                <span>KUTUB UDDIN<span class="text-accent">.</span></span>
+            </a>
             <div class="hidden md:flex gap-8 font-semibold text-slate-700 text-sm tracking-widest uppercase">
                 <a href="#about" class="hover:text-accent transition-colors">About</a>
                 <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
