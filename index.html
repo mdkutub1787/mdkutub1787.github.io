@@ -182,7 +182,7 @@
                 <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Years Exp.</p>
             </div>
             <div class="premium-card p-6 flex flex-col items-center justify-center text-center">
-                <p class="text-3xl font-extrabold text-primary mb-1">4</p>
+                <p id="project-count" class="text-3xl font-extrabold text-primary mb-1">7</p>
                 <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Major Projects</p>
             </div>
             <div class="premium-card p-6 flex flex-col items-center justify-center text-center">
@@ -620,6 +620,14 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Auto-update project count
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('#projects .grid > div');
+            const projectCountElement = document.getElementById('project-count');
+            if (projectCountElement && projectCards.length > 0) {
+                projectCountElement.textContent = projectCards.length + '+';
+            }
+        });
         AOS.init({ duration: 800, once: true, offset: 50 });
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
