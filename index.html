@@ -18,11 +18,11 @@
                 extend: {
                     fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
-                        primary: '#0f172a',
-                        secondary: '#334155',
-                        accent: '#3b82f6',
+                        primary: '#09090b',
+                        secondary: '#52525b',
+                        accent: '#18181b',
                         surface: '#ffffff',
-                        background: '#f8fafc'
+                        background: '#ffffff'
                     },
                     boxShadow: {
                         'premium': '0 20px 40px -15px rgba(0,0,0,0.05)',
@@ -37,16 +37,15 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            background-color: #ffffff;
+            color: #09090b;
         }
 
         .mesh-bg {
-            background-color: #0f172a;
+            background-color: #ffffff;
             background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+                radial-gradient(at 50% 0%, hsla(210,100%,98%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(0,0%,98%,1) 0, transparent 50%);
         }
 
         .glass-nav {
@@ -72,14 +71,14 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #09090b 0%, #3f3f46 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .hero-gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            background: linear-gradient(135deg, #09090b 0%, #52525b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -135,43 +134,43 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="mesh-bg text-white pt-48 pb-32 px-6 relative overflow-hidden">
+    <header class="mesh-bg pt-48 pb-32 px-6 relative overflow-hidden text-primary">
         <div class="max-w-6xl mx-auto relative z-10 flex flex-col items-center text-center">
             <div data-aos="fade-down" class="mb-8 flex flex-col items-center">
                 <!-- Premium Avatar -->
                 <div class="relative mb-6 group">
                     <!-- Glow effect -->
-                    <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-slate-200 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <!-- Gradient border -->
-                    <div class="w-32 h-32 relative rounded-full p-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 shadow-xl">
+                    <div class="w-32 h-32 relative rounded-full p-[3px] bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-200 shadow-xl">
                         <!-- Inner dark border and image -->
-                        <div class="w-full h-full bg-slate-900 rounded-full p-1">
+                        <div class="w-full h-full bg-white rounded-full p-1">
                             <img src="https://github.com/mdkutub1787.png" alt="Md. Kutub Uddin" class="w-full h-full object-cover rounded-full">
                         </div>
                     </div>
                 </div>
                 <!-- Badge -->
-                <span class="bg-white/10 backdrop-blur-md border border-white/10 px-5 py-2 rounded-full text-xs font-semibold tracking-widest uppercase text-blue-200 shadow-glass">Mobile Application Developer</span>
+                <span class="bg-slate-50 border border-slate-200 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase text-slate-500 shadow-sm">Mobile Application Developer</span>
             </div>
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight hero-gradient-text max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Crafting enterprise-grade ERP and mobile solutions with Native Android and Flutter.
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-12 font-light max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                Specializing in <span class="font-medium text-white">Native Android</span> & <span class="font-medium text-white">Flutter</span>. Bringing hardware integration and complex business logic to life.
+            <p class="text-lg md:text-xl text-slate-600 mb-12 font-medium max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                Specializing in <span class="font-bold text-primary">Native Android</span> & <span class="font-bold text-primary">Flutter</span>. Bringing hardware integration and complex business logic to life.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="300">
-                <a href="Md_Kutub_Uddin_Mobile_Application_Developer_CV.pdf" target="_blank" type="application/pdf" class="bg-white text-primary px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-slate-50 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
-                    <i class="fas fa-file-pdf text-accent"></i> Download Resume
+                <a href="Md_Kutub_Uddin_Mobile_Application_Developer_CV.pdf" target="_blank" type="application/pdf" class="bg-primary text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
+                    <i class="fas fa-file-pdf"></i> Download Resume
                 </a>
-                <a href="#projects" class="bg-transparent text-white border border-white/20 px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-white/10 transition-all hover:border-white/40">
+                <a href="#projects" class="bg-white text-primary border border-slate-200 px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-slate-50 transition-all hover:border-slate-300">
                     Explore Work <i class="fas fa-arrow-right text-sm"></i>
                 </a>
             </div>
         </div>
         
         <!-- Subtle gradient overlay at bottom to blend with background -->
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 relative z-20 pb-20 -mt-8">
