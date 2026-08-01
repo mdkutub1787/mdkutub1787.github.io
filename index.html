@@ -114,7 +114,7 @@
     <!-- Navbar -->
     <nav class="fixed top-4 w-full z-50 px-4 transition-all duration-300">
         <div class="max-w-5xl mx-auto glass-nav rounded-full px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 text-2xl font-black tracking-tighter text-white group">
+            <a href="#" class="flex items-center gap-3 text-2xl font-black tracking-tighter text-white group z-50">
                 <div
                     class="w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(0,229,255,0.5)] group-hover:scale-105 transition-transform duration-300">
                     K
@@ -128,11 +128,61 @@
                 <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
                 <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
             </div>
-            <a href="#contact"
-                class="btn-primary px-7 py-3 rounded-full text-[11px] font-bold tracking-widest uppercase shadow-lg">HIRE
-                ME</a>
+            <div class="flex items-center gap-4 z-50">
+                <a href="#contact"
+                    class="hidden md:inline-block btn-primary px-7 py-3 rounded-full text-[11px] font-bold tracking-widest uppercase shadow-lg">HIRE
+                    ME</a>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none flex items-center justify-center w-10 h-10 rounded-full bg-slate-800/50 hover:bg-slate-700/50 transition-colors">
+                    <i class="fas fa-bars text-xl" id="mobile-menu-icon"></i>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
+        <a href="#about" class="text-2xl font-bold text-white hover:text-accent transition-colors mobile-link">About</a>
+        <a href="#experience" class="text-2xl font-bold text-white hover:text-accent transition-colors mobile-link">Experience</a>
+        <a href="#education" class="text-2xl font-bold text-white hover:text-accent transition-colors mobile-link">Education</a>
+        <a href="#projects" class="text-2xl font-bold text-white hover:text-accent transition-colors mobile-link">Projects</a>
+        <a href="#skills" class="text-2xl font-bold text-white hover:text-accent transition-colors mobile-link">Skills</a>
+        <a href="#contact" class="btn-primary px-8 py-4 mt-4 rounded-full text-sm font-bold tracking-widest uppercase shadow-lg mobile-link">HIRE ME</a>
+    </div>
+
+    <!-- Script for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+            
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if(isMenuOpen) {
+                    menu.classList.remove('translate-x-full');
+                    menu.classList.add('translate-x-0');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    menu.classList.remove('translate-x-0');
+                    menu.classList.add('translate-x-full');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(isMenuOpen) toggleMenu();
+                });
+            });
+        });
+    </script>
 
     <!-- Hero Section -->
     <header class="mesh-bg pt-48 pb-32 px-6 relative overflow-hidden text-white">
